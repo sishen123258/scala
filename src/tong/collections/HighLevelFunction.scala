@@ -56,9 +56,19 @@ object HighLevelFunction {
     println(map)
     //遍历collection使用 <-
     for ((k, v) <- map) {
-      println(k+":"+v)
+      println(k + ":" + v)
     }
 
+    //过滤map
+    val newMap = map.filter(m => m._2 <= 100)
+    println(newMap)
+
+    //模式匹配过滤map
+    val newMap2 = map.filter({
+      case (name: String, age: Int) =>
+        age <= 100
+    })
+    println(newMap2)
 
   }
 
