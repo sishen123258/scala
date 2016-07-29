@@ -1,9 +1,6 @@
 package tong.traits
 
 
-/**
-  * Created by Tong on 2016/7/29.
-  */
 trait Philosophical{
 
     def philosophize(): Unit ={
@@ -26,3 +23,8 @@ object script extends App{
     t.philosophize()
 
 }
+
+
+
+
+
