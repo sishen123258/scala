@@ -84,6 +84,10 @@ class BaseIntQueue extends IntQueue {
 
 }
 
+
+//究竟是用特质还是抽象类，要看实现的行为，如果行为会被多个不想关的类重用，那么，就使用trait
+
+//对于特质来说，方法调用是由类和被混入类中的特质的线性化顺序决定的
 trait Doubling extends IntQueue {
     abstract override def put(x: Int): Unit = {
         super.put(2 * x)
@@ -103,6 +107,27 @@ trait Filter extends IntQueue{
         }
     }
 }
+
+
+
+//scala 里的静态变量
+class TestStatic{
+
+    import TestStatic.url
+
+    def getUrl():String={
+        return url
+    }
+
+}
+
+object TestStatic{
+
+    val url="www.tong.com"
+
+}
+
+
 
 
 object script2 extends App {
@@ -126,5 +151,8 @@ object script2 extends App {
 
     intQueue2.put(2)
     println(intQueue2.get()) //5
+
+    val testStatic=new TestStatic
+    println(testStatic.getUrl())
 
 }
