@@ -1,6 +1,6 @@
 package tong.collections
 
-import scala.collection.immutable.Queue
+import scala.collection.mutable.Queue
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 object script4 extends App {
@@ -48,6 +48,16 @@ object script4 extends App {
     println(arrayBuffer)
 
     //queue 可变和不可变queue
-    val q = new Queue[Int]
+
+    val queue = Queue(1, 2, 3, 4, 5)
+    println(queue)
+
+
+
+}
+
+class Queue[T]{
+
+
 
 }
