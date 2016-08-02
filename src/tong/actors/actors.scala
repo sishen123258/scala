@@ -17,6 +17,10 @@ object actors extends App {
 
     EchoActor2.start()
 
+    NameResolver.start()
+    NameResolver ! "123456"
+    NameResolver ! 123456
+
 }
 
 
@@ -61,4 +65,18 @@ object EchoActor2 extends Actor {
     }
 }
 
-//当使用react时 可以
+//当使用react时 可以重用线程，性能优化
+object NameResolver extends Actor {
+    override def act(): Unit = {
+
+        react{
+            case msg: Int =>
+                println("Double is: " + msg * 2)
+                act()
+            case msg =>
+                println("Receiving msg:" + msg)
+                act()
+        }
+
+    }
+}
