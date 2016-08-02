@@ -7,14 +7,15 @@ import scala.actors.Actor._
 object actors extends App {
 
     //开始 actor
-//    SillyActors.start()
-//    SillyActors2.start()
-
+    //    SillyActors.start()
+    //    SillyActors2.start()
 
 
     EchoActor.start()
     EchoActor ! "Hi!"
+    EchoActor ! 5
 
+    EchoActor2.start()
 
 }
 
@@ -40,9 +41,24 @@ object SillyActors2 extends Actor {
 object EchoActor extends Actor {
     override def act(): Unit = {
         while (true) {
+            //永远等下去 receive阻塞
             receive {
+                case msg: Int => println("Double is: " + msg * 2)
                 case msg => println("Receiving msg:" + msg)
             }
         }
     }
 }
+
+object EchoActor2 extends Actor {
+    override def act(): Unit = {
+        //设置了超时时间
+        receiveWithin(1000) {
+            case msg: Int => println("Double is: " + msg * 2)
+            case msg => println("Receiving msg:" + msg)
+        }
+        println("over")
+    }
+}
+
+//当使用react时 可以
