@@ -15,5 +15,5 @@ hfa/src/test/java/com/hypers/hfa/daily/xc/*
 
 .idea/
 out/
-
+*.jar
 *.iml

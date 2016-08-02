@@ -27,9 +27,6 @@ object script5 extends App{
     println(Color.WHITE)
 
     val direction=Direction.ValueSet
-    for (i <- direction){
-        println(i)
-    }
 
 
 }

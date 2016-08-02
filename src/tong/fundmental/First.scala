@@ -63,7 +63,7 @@ abstract class Shape {
 
 class Circle(r: Double) extends Shape {
   override def getArea(): Double = {
-    Math.PI * r * r
+    scala.math.Pi * r * r
   }
 }
 
