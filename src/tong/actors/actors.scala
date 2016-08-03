@@ -21,6 +21,10 @@ object actors extends App {
     NameResolver ! "123456"
     NameResolver ! 123456
 
+    NameResolver2.start()
+    NameResolver2 ! "123456"
+    NameResolver2 ! 123456
+
 }
 
 
@@ -69,7 +73,7 @@ object EchoActor2 extends Actor {
 object NameResolver extends Actor {
     override def act(): Unit = {
 
-        react{
+        react {
             case msg: Int =>
                 println("Double is: " + msg * 2)
                 act()
@@ -80,3 +84,19 @@ object NameResolver extends Actor {
 
     }
 }
+
+//上面的升级版
+object NameResolver2 extends Actor {
+    override def act(): Unit = {
+        loop {
+            react {
+                case msg: Int =>
+                    println("NameResolver2 Double is: " + msg * 2)
+                case msg =>
+                    println("NameResolver2 Receiving msg:" + msg)
+            }
+        }
+    }
+}
+
+
