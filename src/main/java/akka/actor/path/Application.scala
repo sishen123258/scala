@@ -10,6 +10,8 @@ object Application extends App{
     val counter = actorSystem.actorOf(Props[Counter], "counter")
     val watcher = actorSystem.actorOf(Props[Watcher], "watcher")
 
+    counter ! Counter.Inc(10)
+    counter ! Counter.Inc(10)
     Thread.sleep(1000)
 
     actorSystem.awaitTermination()

@@ -14,8 +14,14 @@ class Counter extends Actor {
 
     override def receive: Receive = {
 
-        case Inc(x) => counter += x
-        case Dec(x) => counter -= x
+        case Inc(x) => {
+            counter += x
+            println(counter)
+        }
+        case Dec(x) => {
+            counter -= x
+            println(counter)
+        }
     }
 
 }
