@@ -1,4 +1,4 @@
-package akka
+package myakka
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer

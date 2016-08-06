@@ -1,4 +1,4 @@
-package akka.actor.path
+package myakka.actor.path
 
 import akka.actor.{ActorSystem, Props}
 
